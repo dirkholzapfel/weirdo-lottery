@@ -13,6 +13,9 @@ config :logger, level: :warn
 # Initialize plugs at runtime for faster test compilation
 config :phoenix, :plug_init_mode, :runtime
 
+# Set the env the app runs with
+config :weirdo_lottery, :env, :test
+
 # Configure your local test database in this file. If it does not exist yet
 # copy and configure database.test.exs.sample
 import_config "database.test.exs"

@@ -50,6 +50,9 @@ config :phoenix, :stacktrace_depth, 20
 # Initialize plugs at runtime for faster development compilation
 config :phoenix, :plug_init_mode, :runtime
 
+# Set the env the app runs with
+config :weirdo_lottery, :env, :dev
+
 # Configure your local dev database in this file. If it does not exist yet
 # copy and configure database.dev.exs.sample
 import_config "database.dev.exs"

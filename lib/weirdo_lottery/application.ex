@@ -15,7 +15,11 @@ defmodule WeirdoLottery.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: WeirdoLottery.PubSub},
       # Start the Endpoint (http/https)
-      WeirdoLotteryWeb.Endpoint
+      WeirdoLotteryWeb.Endpoint,
+      # Start the TaskSupervisor
+      {Task.Supervisor, name: WeirdoLottery.TaskSupervisor},
+      # Start the PointsUpdater GenServer
+      WeirdoLottery.Users.PointsUpdater
       # Start a worker by calling: WeirdoLottery.Worker.start_link(arg)
       # {WeirdoLottery.Worker, arg}
     ]
