@@ -24,6 +24,19 @@ defmodule WeirdoLottery.Application do
       # {WeirdoLottery.Worker, arg}
     ]
 
+    children =
+      case Application.get_env(:weirdo_lottery, :env) do
+        :test ->
+          children
+
+        _ ->
+          children ++
+            [
+              # Start the LotteryMinion GenServer
+              WeirdoLottery.Lottery.LotteryMinion
+            ]
+      end
+
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
     opts = [strategy: :one_for_one, name: WeirdoLottery.Supervisor]
