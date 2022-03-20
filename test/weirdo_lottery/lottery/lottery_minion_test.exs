@@ -19,9 +19,8 @@ defmodule WeirdoLottery.Lottery.LotteryMinionTest do
     winner = user_fixture(%{points: 42})
 
     # First drawing
-    %{timestamp: timestamp, winners: [drawn_winner]} = LotteryMinion.draw_winners()
+    %{timestamp: nil, winners: [drawn_winner]} = LotteryMinion.draw_winners()
 
-    refute timestamp
     assert winner.id == drawn_winner.id
 
     # Second drawing
