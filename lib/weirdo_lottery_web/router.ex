@@ -5,7 +5,9 @@ defmodule WeirdoLotteryWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/api", WeirdoLotteryWeb do
+  scope "/", WeirdoLotteryWeb.API do
     pipe_through :api
+
+    get "/", LotteryController, :draw_winners
   end
 end
